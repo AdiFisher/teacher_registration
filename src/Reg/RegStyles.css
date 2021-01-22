@@ -1,0 +1,189 @@
+/*body {*/
+/*  !*background: #0e101c;*!*/
+/*  background: #ffffff;*/
+/*  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",*/
+/*  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",*/
+/*  sans-serif;*/
+/*}*/
+
+/*body {*/
+/*  background: rgb(236, 236, 236);*/
+/*  !*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",*!*/
+/*  !*"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",*!*/
+/*  !*sans-serif;*!*/
+/*}*/
+
+.reg-form {
+  /*max-width: 500px;*/
+  max-width: 600px;
+  margin: 0 auto;
+  /*font-family: Arial, serif;*/
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+}
+
+.reg-header {
+/*h1 {*/
+  font-weight: 400;
+  /*color: white;*/
+  /*color: deepskyblue;*/
+  color: #282c34;
+  text-align: center;
+  padding-bottom: 10px;
+  /*border-bottom: 1px solid rgb(79, 98, 148);*/
+  border-bottom: 1px solid #f8df00;
+}
+
+/*check why needed*/
+/*.form {*/
+/*  background: #000000;*/
+/*  max-width: 400px;*/
+/*  margin: 0 auto;*/
+/*}*/
+
+.p-error {
+  /*color: #bf1650;*/
+  color: red;
+  font-size: 12px;
+  text-align: right;
+}
+
+.p-error::before {
+/*p::before {*/
+  display: inline;
+  content: "⚠ ";
+}
+
+.reg-textarea,
+.reg-input {
+  display: block;
+  box-sizing: border-box;
+  text-align: right;
+  width: 100%;
+  border-radius: 4px;
+  /*border: 1px solid white;*/
+  /*border: 1px solid #030000;*/
+  border: 1px solid #bfbfbf;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.reg-label {
+  line-height: 2;
+  /*text-align: left;*/
+  text-align: right;
+  display: block;
+  /*margin-bottom: 13px;*/
+  margin-bottom: 10px;
+  margin-top: 20px;
+  /*color: white;*/
+  /*color: #000000;*/
+  color: #282c34;
+  /*font-size: 14px;*/
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* submit botton: */
+reg-button[type="submit"],
+.reg-input[type="submit"] {
+  /*background: #ec5990;*/
+  background: #282c34;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  /*margin-top: 40px;*/
+  margin-top: 50px;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 9px;
+}
+
+.reg-button[type="submit"]:hover,
+.reg-input[type="submit"]:hover {
+  /*background: #bf1650;*/
+  /*background: black;*/
+  /*background: #bfbfbf;*/
+  background: #f8df00;
+  color: #282c34
+}
+
+/* check why needed */
+.reg-button[type="submit"]:active,
+.reg-input[type="button"]:active,
+.reg-input[type="submit"]:active {
+  transition: 0.3s all;
+  transform: translateY(3px);
+  border: 1px solid transparent;
+  opacity: 0.8;
+}
+
+input:disabled {
+  opacity: 0.4;
+}
+
+/*check why needed */
+.reg-input[type="button"]:hover {
+  transition: 0.3s all;
+}
+
+/*check why needed */
+.reg-button[type="submit"],
+.reg-input[type="button"],
+.reg-input[type="submit"] {
+  -webkit-appearance: none;
+}
+
+/* no need as we have this configurations in form */
+/*.App {*/
+/*  max-width: 600px;*/
+/*  margin: 0 auto;*/
+/*}*/
+
+/*course dropdown arrow box */
+.reg-button[type="button"] {
+  display: block;
+  appearance: none;
+  /*background: #333;*/
+  background: #ffffff;
+  /*color: white;*/
+  color: #000000;
+  border: none;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+/*hr {*/
+/*  margin-top: 30px;*/
+/*}*/
+
+/*button {*/
+/*  display: block;*/
+/*  appearance: none;*/
+/*  margin-top: 40px;*/
+/*  !*border: 1px solid #333;*!*/
+/*  border: 1px solid #9223b1;*/
+/*  margin-bottom: 20px;*/
+/*  text-transform: uppercase;*/
+/*  padding: 10px 20px;*/
+/*  border-radius: 4px;*/
+/*}*/
+
+
+/*inputField { !* To change input field position or margin *!*/
+/*margin: 5px;*/
+/*}*/
+/*chips { !* To change css chips(Selected options) *!*/
+/*background: #ff0000;*/
+/*}*/
+/*optionContainer { !* To change css for option container *!*/
+/*border: 2px solid;*/
+/*}*/
+/*.course-option { !* To change css for dropdown options *!*/
+/*color: #36cd26;*/
+/*}*/
