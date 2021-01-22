@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import Autocomplete from "@material-ui/lab/Autocomplete";
-
 
 export class UserDetails extends Component{
     continue = e => {
@@ -16,14 +13,7 @@ export class UserDetails extends Component{
         return(
             <MuiThemeProvider>
                 <React.Fragment>
-                    {/*<AppBar titile="הזן פרטי משתמש"/>*/}
-                    <h3>הזן פרטי משתמש</h3>
                     <TextField
-                        required={true}
-                        id="standard-required"
-                        //required id="standard-required"
-                        //label="Required"
-                        //defaultValue="Hello World"
                         hintText="הזן את שמך הפרטי"
                         floatingLabelText="שם פרטי"
                         onChange={handleChange('firstName')}
@@ -80,6 +70,13 @@ export class UserDetails extends Component{
                     />
                     <br/>
                     <TextField
+                        hintText="ציין את שמות הקורסים שאתה מלמד"
+                        floatingLabelText="רשימת קורסים מופרדים על ידי פסיק"
+                        onChange={handleChange('courseList')}
+                        defaultValue={values.courseList}
+                    />
+                    <br/>
+                    <TextField
                         hintText="הזן תיאור קצר על עצמך או פרטים נוספים"
                         floatingLabelText="פרטים נוספים"
                         onChange={handleChange('moreDetails')}
@@ -98,10 +95,9 @@ export class UserDetails extends Component{
     }
 }
 
-
 const styles = {
     button: {
-      margin: 15
-    }
+        margin: 15
+    },
 }
 export default UserDetails

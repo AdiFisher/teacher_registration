@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
 import {List, ListItem} from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
-// import chosenCourses from "./CoursesList"
-// import value2 from "./CoursesList"
-import courseL from "./CoursesList2"
-import chosenCourses from "./CoursesList3"
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/analytics';
+import 'firebase/database'
 
-export class ConfirmationPage extends Component {
+
+export class ConfirmationPageForUpdate extends Component {
     continue = e => {
         e.preventDefault();
         //Process form - send to DB//
@@ -21,13 +22,11 @@ export class ConfirmationPage extends Component {
     };
 
     render() {
-        const {values: {firstName, lastName, gender, phoneNumber, email, education, experience, lessonCost, courseList, moreDetails, chosenCourses}} = this.props;
-        //const { value2,chosenCourses,inputValue } = this.state;
-        //const { values, handleChange } = this.props;
+        const {values: {firstName, lastName, gender, phoneNumber, email, education, experience, lessonCost, courseList, moreDetails}} = this.props;
         return (
             <MuiThemeProvider>
                 <React.Fragment>
-                    <AppBar titile="נא אשר את פרטייך"/>
+                    <h3>נא אשר את הפרטים</h3>
                     <List>
                         <ListItem
                             primaryText="שם פרטי"
@@ -63,19 +62,8 @@ export class ConfirmationPage extends Component {
                         />
                         <ListItem
                             primaryText="רשימת קורסים"
-                            //secondaryText={courseList}
-                            //secondaryText={inputValue}
-                            // secondaryText={chosenCourses.map(e => e.name).join(",")}
-                            secondaryText={chosenCourses}
+                            secondaryText={courseList}
                         />
-                        {/*<ListItem*/}
-                        {/*    primaryText="רשימת קורסים2"*/}
-                        {/*    secondaryText={chosenCourses}*/}
-                        {/*/>*/}
-                        {/*<ListItem*/}
-                        {/*    primaryText="רשימת קורסי3"*/}
-                        {/*    secondaryText={inputValue}*/}
-                        {/*/>*/}
                         <ListItem
                             primaryText="פרטים נוספים"
                             secondaryText={moreDetails}
@@ -86,7 +74,8 @@ export class ConfirmationPage extends Component {
                         label="אשר והמשך"
                         primary={true} //blue color
                         style={styles.button}
-                        onClick={this.continue}
+                        //onClick={this.continue}
+                        onClick={() => writeUserData()}
                     />
                     <RaisedButton
                         label="חזרה"
@@ -97,6 +86,28 @@ export class ConfirmationPage extends Component {
                 </React.Fragment>
             </MuiThemeProvider>
         )
+
+
+        function writeUserData(){
+            const auth = firebase.auth();
+            const userId = auth.currentUser.uid
+            const email = auth.currentUser.email
+            const imageUrl = auth.currentUser.photoURL
+            firebase.database().ref('users/' + userId).set({
+                first_name: {values:firstName},
+                last_name: {values:lastName},
+                gender: {values:gender},
+                phoneNumber: {values:phoneNumber},
+                email: {values:email},
+                education: {values:education},
+                lessonCost: {values:lessonCost},
+                courseList: {values:courseList},
+                moreDetails: {values:moreDetails},
+                imageUrl: {imageUrl},
+                timestamp : new Date().getTime()
+            });
+        }
+
     }
 }
 
@@ -104,6 +115,7 @@ const styles = {
     button: {
         margin: 15
     }
+
 }
 
-export default ConfirmationPage
+export default ConfirmationPageForUpdate

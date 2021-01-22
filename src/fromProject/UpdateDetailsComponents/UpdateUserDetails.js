@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import firebase from "firebase";
+
+const auth = firebase.auth();
+//const userId = auth.currentUser.uid
+//const email = auth.currentUser.email
+//const imageUrl = auth.currentUser.photoURL
+//const a = firebase.database().ref('users/' + userId).get.first_name;
 
 
-export class UserDetails extends Component{
+export class UpdateUserDetails extends Component{
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
@@ -16,71 +21,72 @@ export class UserDetails extends Component{
         return(
             <MuiThemeProvider>
                 <React.Fragment>
-                    {/*<AppBar titile="הזן פרטי משתמש"/>*/}
-                    <h3>הזן פרטי משתמש</h3>
                     <TextField
-                        required={true}
-                        id="standard-required"
-                        //required id="standard-required"
-                        //label="Required"
-                        //defaultValue="Hello World"
-                        hintText="הזן את שמך הפרטי"
-                        floatingLabelText="שם פרטי"
+                        hintText="עדכן את שמך הפרטי"
+                        //floatingLabelText="שם פרטי"
+                        //floatingLabelText={a}
                         onChange={handleChange('firstName')}
                         defaultValue={values.firstName}
                     />
                     <br/>
                     <TextField
-                        hintText="הזן את שם המשפחה שלך"
+                        hintText="עדכן את שם המשפחה שלך"
                         floatingLabelText="שם משפחה"
                         onChange={handleChange('lastName')}
                         defaultValue={values.lastName}
                     />
                     <br/>
                     <TextField
-                        hintText="הזן את המגדר שלך"
+                        hintText="עדכן את המגדר שלך"
                         floatingLabelText="מגדר"
                         onChange={handleChange('gender')}
                         defaultValue={values.gender}
                     />
                     <br/>
                     <TextField
-                        hintText="הזן את מספר הטלפון שלך"
+                        hintText="עדכן את מספר הטלפון שלך"
                         floatingLabelText="מספר טלפון"
                         onChange={handleChange('phoneNumber')}
                         defaultValue={values.phoneNumber}
                     />
                     <br/>
                     <TextField
-                        hintText="הזן את כתובת המייל שלך"
+                        hintText="עדכן את כתובת המייל שלך"
                         floatingLabelText="מייל"
                         onChange={handleChange('email')}
                         defaultValue={values.email}
                     />
                     <br/>
                     <TextField
-                        hintText="הזן את השכלתך"
+                        hintText="עדכן את השכלתך"
                         floatingLabelText="השכלה"
                         onChange={handleChange('education')}
                         defaultValue={values.education}
                     />
                     <br/>
                     <TextField
-                        hintText="הזן את מספר שנות הנסיון שלך"
+                        hintText="עדכן את מספר שנות הנסיון שלך"
                         floatingLabelText="נסיון"
                         onChange={handleChange('experience')}
                         defaultValue={values.experience}
                     />
                     <br/>
                     <TextField
-                        hintText="הזן עלות שיעור"
+                        hintText="עדכן עלות שיעור"
                         floatingLabelText="עלות שיעור"
                         onChange={handleChange('lessonCost')}
                         defaultValue={values.lessonCost}
                     />
                     <br/>
                     <TextField
-                        hintText="הזן תיאור קצר על עצמך או פרטים נוספים"
+                        hintText="עדכן את רשימת הקורסים שאתה מלמד"
+                        floatingLabelText="רשימת קורסים מופרדים על ידי פסיק"
+                        onChange={handleChange('courseList')}
+                        defaultValue={values.courseList}
+                    />
+                    <br/>
+                    <TextField
+                        hintText="עדכן תיאור או פרטים נוספים"
                         floatingLabelText="פרטים נוספים"
                         onChange={handleChange('moreDetails')}
                         defaultValue={values.moreDetails}
@@ -98,10 +104,9 @@ export class UserDetails extends Component{
     }
 }
 
-
 const styles = {
     button: {
-      margin: 15
-    }
+        margin: 15
+    },
 }
-export default UserDetails
+export default UpdateUserDetails
